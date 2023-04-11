@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
     id: DataTypes.INTEGER,
@@ -9,9 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     author: DataTypes.STRING,
     pageQuantity: DataTypes.INTEGER,
     createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   });
 
-return Book;
-  return book;
+  return Book;
 };
