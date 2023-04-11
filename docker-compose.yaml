@@ -8,13 +8,13 @@ services:
     ports:
       - 3306:3306
   booksAPI:
-    container_name: booksAPI
     image: node:16
+    container_name: booksAPI
     restart: always
     ports:
       - 3001:3001
     environment:
-      - DB_HOST=mysql
+      - DB_HOST=booksAPI_DB
       - DB_NAME=booksAPI
       - DB_USER=root
       - DB_PASSWORD=senha
