@@ -1,0 +1,30 @@
+version: '3.1'
+services:
+  booksAPI_DB:
+    image: mysql:5.7
+    container_name: booksAPI_DB
+    environment:
+      - MYSQL_ROOT_PASSWORD=senha
+    ports:
+      - 3306:3306
+  booksAPI:
+    container_name: booksAPI
+    image: node:16
+    restart: always
+    ports:
+      - 3001:3001
+    environment:
+      - DB_HOST=mysql
+      - DB_NAME=booksAPI
+      - DB_USER=root
+      - DB_PASSWORD=senha
+      - SERVER_PORT=3001
+    volumes:
+      - ./:/usr/app
+    working_dir: /usr/app
+    command: bash
+    # As duas opções a baixo correspondem ao -it
+    tty: true # -t
+    stdin_open: true # -i
+    depends_on:
+      - booksAPI_DB
